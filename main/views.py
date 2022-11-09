@@ -37,6 +37,28 @@ def director_films(request, director_id):
     }
     return render(request, 'director_films.html', context=context)
 
+def create_film(request):
+    if request.method == 'GET':
+        return render(request, 'create_film.html', context={
+            'form': FilmForm()
+        })
+    elif request.method == "POST":
+        form = FilmForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+def create_director(request):
+    if request.method == 'GET':
+        return render(request, 'create_director.html', context={
+            'form': DirectorForm()
+        })
+    elif request.method == "POST":
+        form = DirectorForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
 
 
 

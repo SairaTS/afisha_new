@@ -23,5 +23,7 @@ urlpatterns = [
     path('films/', film_list_view),
     path('films/<int:id>', film_list_detail),
     path('director/<int:director_id>/films/', director_films),
+    path('films/create/', create_film),
+    path('director/create/', create_director)
 
 ]
